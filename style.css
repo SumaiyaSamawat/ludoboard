@@ -1,0 +1,200 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #f2f2f2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.ludo-board {
+    width: min(90vw, 600px);
+    aspect-ratio: 1;
+    border: 3px solid #222;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    background: white;
+}
+
+/* Home areas */
+.home {
+    grid-column: span 6;
+    grid-row: span 6;
+    border: 2px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.red {
+    background: #ed3237;
+}
+
+.green {
+    background: #27ae60;
+}
+
+.yellow {
+    background: #f1c40f;
+}
+
+.blue {
+    background: #3498db;
+}
+
+.home.red {
+    grid-area: 1 / 1 / 7 / 7;
+}
+
+.green-home {
+    grid-area: 1 / 10 / 7 / 16;
+    background: #27ae60;
+}
+
+.blue-home {
+    grid-area: 10 / 1 / 16 / 7;
+    background: #3498db;
+}
+
+.yellow-home {
+    grid-area: 10 / 10 / 16 / 16;
+    background: #f1c40f;
+}
+
+/* Four white home yards */
+.yard {
+    background: white;
+    width: 72%;
+    height: 72%;
+    border: 2px solid #222;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+    padding: 8%;
+    gap: 10%;
+}
+
+.yard span {
+    width: 70%;
+    aspect-ratio: 1;
+    border: 2px solid #333;
+    border-radius: 50%;
+}
+
+.red .yard span {
+    background: #ed3237;
+}
+
+.green-home .yard span {
+    background: #27ae60;
+}
+
+.blue-home .yard span {
+    background: #3498db;
+}
+
+.yellow-home .yard span {
+    background: #f1c40f;
+}
+
+/* Paths */
+.path {
+    background: white;
+    display: grid;
+    border: 1px solid #222;
+}
+
+.path div {
+    border: 1px solid #999;
+}
+
+.top-path {
+    grid-area: 1 / 7 / 7 / 10;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.left-path {
+    grid-area: 7 / 1 / 10 / 7;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.right-path {
+    grid-area: 7 / 10 / 10 / 16;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.bottom-path {
+    grid-area: 10 / 7 / 16 / 10;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+/* Colored home lanes */
+.top-path .green,
+.right-path .yellow,
+.left-path .red,
+.bottom-path .blue {
+    border: 1px solid #555;
+}
+
+/* Center finishing area */
+.center {
+    grid-area: 7 / 7 / 10 / 10;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #222;
+    background: white;
+}
+
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.red-triangle {
+    top: 0;
+    left: 0;
+    border-width: 0 0 100% 100%;
+    border-color: transparent transparent transparent #ed3237;
+}
+
+.green-triangle {
+    top: 0;
+    right: 0;
+    border-width: 0 100% 100% 0;
+    border-color: transparent #27ae60 transparent transparent;
+}
+
+.yellow-triangle {
+    bottom: 0;
+    right: 0;
+    border-width: 100% 0 0 100%;
+    border-color: transparent transparent #f1c40f transparent;
+}
+
+.blue-triangle {
+    bottom: 0;
+    left: 0;
+    border-width: 100% 100% 0 0;
+    border-color: #3498db transparent transparent transparent;
+}
